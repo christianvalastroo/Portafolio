@@ -101,7 +101,7 @@ function Loader({ hidden }) {
       <div className="loader__panel loader__panel--right" />
       <div className="loader__content">
         <div className="loader__brand" aria-label="valastro-dev">
-          <div className="loader__symbol"><span>V</span><i /></div>
+          <div className="loader__symbol"><img src="/favicon.svg" alt="" /></div>
           <div className="loader__name">Christian <span>Valastro</span></div>
         </div>
         <div className="loader__track"><span /></div>
@@ -126,7 +126,9 @@ function Sidebar({ open, onToggle }) {
         </span>
       </button>
       <aside className={`sidebar ${open ? 'sidebar--open' : ''}`} id="sidebar-navigation">
-        <a className="brand" href="#home" onClick={onToggle}>CV<span>.</span></a>
+        <a className="brand" href="#home" onClick={onToggle} aria-label="valastro-dev · Home">
+          <img src="/favicon.svg" alt="" />
+        </a>
         <nav aria-label="Navigazione principale">
           {navItems.map((item) => (
             <a href={item.href} key={item.href} onClick={onToggle}>
