@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, Blocks, BriefcaseBusiness, Code2, Mail, Menu, PartyPopper, PanelsTopLeft, ShoppingBag, Smartphone, UtensilsCrossed, X } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, Blocks, BriefcaseBusiness, Code2, Mail, Menu, MessageCircle, PartyPopper, PanelsTopLeft, ShoppingBag, Smartphone, UtensilsCrossed, X } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import easytripPreview from './assets/projects/easytrip.png'
@@ -342,9 +342,14 @@ function App() {
         <footer className="contact" id="contatti">
           <span>06 / Iniziamo</span>
           <h2>Hai un’idea?<br /><em>Facciamola funzionare.</em></h2>
-          <a className="contact__mail" href="mailto:valastro.dev@outlook.it">
-            <Mail /> valastro.dev@outlook.it <ArrowUpRight />
-          </a>
+          <div className="contact__channels">
+            <a className="contact__mail" href="mailto:valastro.dev@outlook.it">
+              <Mail /> valastro.dev@outlook.it <ArrowUpRight />
+            </a>
+            <a className="contact__mail contact__whatsapp" href="https://wa.me/37060266624" target="_blank" rel="noreferrer">
+              <MessageCircle /> WhatsApp · +370 602 66624 <ArrowUpRight />
+            </a>
+          </div>
           <div className="contact__bottom">
             <p>Christian Valastro · Web developer · Catania</p>
             <div><a href="https://github.com/christianvalastroo">GitHub</a><a href="https://www.linkedin.com/in/christian-valastro/">LinkedIn</a></div>
