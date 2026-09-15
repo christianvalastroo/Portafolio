@@ -178,6 +178,26 @@ main { position: relative; z-index: 1; margin-left: 116px; }
 .contact__whatsapp { border-top: 0; transition: color .25s, padding-left .25s; }
 .contact__whatsapp:hover { padding-left: 14px; color: var(--mint); }
 .contact__whatsapp svg:last-child { color: var(--mint); }
+.lightning { position: fixed; inset: 0; z-index: 90; overflow: hidden; pointer-events: none; }
+.lightning__sky { position: absolute; inset: 0; background: rgba(238,255,253,.72); mix-blend-mode: screen; animation: lightning-sky .78s steps(2, end) both; }
+.lightning__sky--second { background: radial-gradient(circle at var(--strike-x) var(--strike-y), rgba(255,255,255,.95), rgba(139,245,220,.38) 22%, transparent 62%); animation-delay: .12s; }
+.lightning__bolt { position: absolute; top: -10px; left: var(--strike-x); width: 96px; height: var(--strike-y); min-height: 140px; background: linear-gradient(90deg, transparent 18%, rgba(139,245,220,.4) 34%, #fff 44%, #fff 55%, rgba(255,77,28,.65) 67%, transparent 80%); clip-path: polygon(47% 0, 62% 0, 48% 18%, 70% 20%, 43% 42%, 65% 45%, 34% 66%, 59% 70%, 24% 100%, 38% 73%, 18% 69%, 44% 47%, 26% 42%, 53% 17%, 35% 15%); filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 18px var(--mint)) drop-shadow(0 0 40px var(--accent)); transform: translateX(-50%); transform-origin: top; animation: lightning-bolt .68s steps(2, end) both; }
+.lightning__bolt--ghost { left: calc(var(--strike-x) + 22px); width: 112px; opacity: .62; filter: blur(5px) drop-shadow(0 0 28px var(--accent)); transform: translateX(-50%) scaleX(.8); animation-delay: .08s; }
+.lightning__branch { position: absolute; left: var(--strike-x); top: max(90px, calc(var(--strike-y) - 260px)); width: 170px; height: 8px; background: linear-gradient(90deg, #fff, var(--mint), transparent); clip-path: polygon(0 34%, 45% 0, 38% 42%, 100% 56%, 42% 62%, 50% 100%); filter: drop-shadow(0 0 6px #fff) drop-shadow(0 0 14px var(--mint)); transform-origin: left; animation: lightning-branch .58s steps(2, end) both; }
+.lightning__branch--one { transform: rotate(-28deg); }
+.lightning__branch--two { top: max(150px, calc(var(--strike-y) - 160px)); width: 135px; transform: rotate(24deg) scaleX(.85); animation-delay: .05s; }
+.lightning__branch--three { left: calc(var(--strike-x) - 4px); top: max(210px, calc(var(--strike-y) - 90px)); width: 110px; transform: rotate(155deg) scaleX(.72); animation-delay: .11s; }
+.lightning__impact { position: absolute; left: var(--strike-x); top: var(--strike-y); width: 330px; height: 145px; border-radius: 50%; background: radial-gradient(ellipse, #fff 0 4%, rgba(217,255,249,.96) 8%, rgba(139,245,220,.56) 20%, rgba(255,77,28,.32) 40%, transparent 70%); transform: translate(-50%, -50%); filter: blur(2px) drop-shadow(0 0 35px #fff); animation: lightning-impact .78s ease-out both; }
+.lightning__shockwave { position: absolute; left: var(--strike-x); top: var(--strike-y); width: 90px; height: 90px; border: 4px solid rgba(255,255,255,.9); border-radius: 50%; box-shadow: 0 0 18px var(--mint), inset 0 0 18px var(--accent); animation: lightning-shockwave .72s ease-out both; }
+.app-shell:has(> .lightning) main { animation: thunder-shake .34s ease-out both; }
+.app-shell:has(> .lightning) .contact__channels { animation: electric-contact .72s ease-out both; }
+@keyframes lightning-sky { 0%, 16%, 34%, 52% { opacity: 0; } 7%, 25%, 43% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes lightning-bolt { 0%, 28% { opacity: 0; transform: translateX(-50%) scaleY(.08); } 8%, 38%, 52% { opacity: 1; transform: translateX(-50%) scaleY(1); } 46%, 100% { opacity: 0; transform: translateX(-50%) scaleY(1); } }
+@keyframes lightning-branch { 0%, 30% { opacity: 0; scale: 0 1; } 40%, 60% { opacity: 1; scale: 1 1; } 100% { opacity: 0; scale: 1 1; } }
+@keyframes lightning-impact { 0% { opacity: 0; transform: translate(-50%, -50%) scale(.08); } 14%, 38% { opacity: 1; transform: translate(-50%, -50%) scale(1); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(2.1); } }
+@keyframes lightning-shockwave { 0% { opacity: 1; transform: translate(-50%, -50%) scale(.2); } 100% { opacity: 0; transform: translate(-50%, -50%) scale(4.2); } }
+@keyframes thunder-shake { 0%, 100% { transform: translate(0); } 12% { transform: translate(-6px, 3px); } 25% { transform: translate(5px, -3px); } 42% { transform: translate(-4px, -2px); } 60% { transform: translate(3px, 2px); } 78% { transform: translate(-1px, 1px); } }
+@keyframes electric-contact { 0%, 100% { filter: none; } 18%, 42% { filter: brightness(2.2) drop-shadow(0 0 18px rgba(139,245,220,.7)); } }
 .contact__bottom { margin-top: auto; padding-top: 80px; display: flex; justify-content: space-between; color: #77736d; text-transform: uppercase; letter-spacing: .13em; font: .52rem DM Mono, monospace; }
 .contact__bottom div { display: flex; gap: 28px; }
 .contact__bottom a { text-decoration: none; }

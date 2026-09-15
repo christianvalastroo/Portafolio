@@ -5,6 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import easytripPreview from './assets/projects/easytrip.png'
 import invitationPreview from './assets/projects/invito-18.png'
 import SandBackground from './components/SandBackground'
+import LightningEffect from './components/LightningEffect'
+import { triggerLightning } from './utils/lightning'
 import './App.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -208,6 +210,7 @@ function App() {
   return (
     <div className="app-shell" ref={appRef}>
       <SandBackground />
+      <LightningEffect />
       <Loader hidden={loaded} />
       <Sidebar open={menuOpen} onToggle={() => setMenuOpen((value) => !value)} />
 
@@ -358,10 +361,24 @@ function App() {
           <span>06 / Iniziamo</span>
           <h2>Hai un’idea?<br /><em>Facciamola funzionare.</em></h2>
           <div className="contact__channels">
-            <a className="contact__mail" href="mailto:valastro.dev@outlook.it">
+            <a
+              className="contact__mail"
+              href="mailto:valastro.dev@outlook.it"
+              onPointerEnter={(event) => triggerLightning(event.currentTarget, event.pointerType === 'mouse')}
+              onFocus={(event) => triggerLightning(event.currentTarget, false)}
+              onClick={(event) => triggerLightning(event.currentTarget, true, true)}
+            >
               <Mail /> valastro.dev@outlook.it <ArrowUpRight />
             </a>
-            <a className="contact__mail contact__whatsapp" href="https://wa.me/37060266624" target="_blank" rel="noreferrer">
+            <a
+              className="contact__mail contact__whatsapp"
+              href="https://wa.me/37060266624"
+              target="_blank"
+              rel="noreferrer"
+              onPointerEnter={(event) => triggerLightning(event.currentTarget, event.pointerType === 'mouse')}
+              onFocus={(event) => triggerLightning(event.currentTarget, false)}
+              onClick={(event) => triggerLightning(event.currentTarget, true, true)}
+            >
               <MessageCircle /> WhatsApp · +370 602 66624 <ArrowUpRight />
             </a>
           </div>
