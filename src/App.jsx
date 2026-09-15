@@ -29,10 +29,10 @@ const projects = [
   {
     number: '02',
     name: 'Next Project',
-    type: 'Nuova esperienza · In sviluppo',
+    type: 'Nuova esperienza · In arrivo',
     description: 'Sto lavorando a qualcosa di nuovo. Un progetto pensato per unire utilità, interazioni curate e una solida esperienza full-stack.',
     tech: ['Research', 'Design', 'Development'],
-    status: 'In sviluppo',
+    status: 'In arrivo',
     accent: '#8bf5dc',
   },
   {
