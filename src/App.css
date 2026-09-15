@@ -99,6 +99,9 @@ main { margin-left: 116px; }
 .project-card__actions a:hover { color: var(--ink); background: var(--paper); border-color: var(--paper); }
 .project-card__actions .project-card__live { color: var(--ink); background: var(--project-accent); border-color: var(--project-accent); }
 .project-card__actions svg, .about__copy > a svg { width: 15px; }
+.project-card__status { min-height: 43px; padding: 0 15px; display: inline-flex; align-items: center; gap: 10px; border: 1px solid color-mix(in srgb, var(--project-accent) 45%, transparent); color: var(--project-accent); text-transform: uppercase; letter-spacing: .1em; font: 500 .55rem DM Mono, monospace; }
+.project-card__status i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 14px currentColor; animation: status-pulse 1.8s ease-in-out infinite; }
+@keyframes status-pulse { 50% { opacity: .35; transform: scale(.72); } }
 
 .about { min-height: 90vh; padding: 130px clamp(28px, 7vw, 125px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 12vw; align-items: center; background: var(--paper); color: var(--ink); }
 .about__intro > span { color: var(--accent); display: block; margin-bottom: 40px; }

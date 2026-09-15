@@ -28,11 +28,11 @@ const projects = [
   },
   {
     number: '02',
-    name: 'MyBudget',
-    type: 'Full-stack · Finance tool',
-    description: 'Un’applicazione per organizzare entrate e spese, leggere con chiarezza le proprie abitudini e prendere decisioni più consapevoli.',
-    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
-    href: 'https://github.com/christianvalastroo/MyBudget',
+    name: 'Next Project',
+    type: 'Nuova esperienza · In sviluppo',
+    description: 'Sto lavorando a qualcosa di nuovo. Un progetto pensato per unire utilità, interazioni curate e una solida esperienza full-stack.',
+    tech: ['Research', 'Design', 'Development'],
+    status: 'In sviluppo',
     accent: '#8bf5dc',
   },
   {
@@ -202,7 +202,9 @@ function App() {
                   <ul>{project.tech.map((item) => <li key={item}>{item}</li>)}</ul>
                   <div className="project-card__actions">
                     {project.live && <a className="project-card__live" href={project.live} target="_blank" rel="noreferrer">Apri applicazione <ArrowUpRight /></a>}
-                    <a href={project.href} target="_blank" rel="noreferrer">Vedi codice <Code2 /></a>
+                    {project.href
+                      ? <a href={project.href} target="_blank" rel="noreferrer">Vedi codice <Code2 /></a>
+                      : <span className="project-card__status"><i />{project.status}</span>}
                   </div>
                 </div>
               </article>
