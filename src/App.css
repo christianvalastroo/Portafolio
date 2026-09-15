@@ -85,6 +85,8 @@ main { margin-left: 116px; }
 .project-card:nth-child(even) .project-card__window { transform: rotateY(7deg) rotateX(3deg); }
 .project-card__window > span { display: inline-block; width: 7px; height: 7px; margin-right: 6px; border-radius: 50%; background: #373737; }
 .project-card__window > span:first-child { background: var(--project-accent); }
+.project-card__window > img { width: 100%; height: calc(100% - 26px); margin-top: 8px; display: block; object-fit: cover; object-position: top center; border: 1px solid rgba(255,255,255,.08); filter: saturate(.88) contrast(1.04); transition: transform .55s cubic-bezier(.2,.8,.2,1), filter .55s; }
+.project-card:hover .project-card__window > img { transform: scale(1.025); filter: saturate(1) contrast(1.02); }
 .project-card__code { height: calc(100% - 26px); display: flex; flex-direction: column; justify-content: center; padding: clamp(20px, 4vw, 55px); background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 32px 32px; font-family: DM Mono, monospace; }
 .project-card__code i { color: #777; font-size: clamp(.6rem, 1vw, .8rem); font-style: normal; }
 .project-card__code b { margin: 13px 0 20px; color: var(--project-accent); font-size: clamp(1.5rem, 3.3vw, 4rem); letter-spacing: -.06em; }

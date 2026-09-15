@@ -2,6 +2,8 @@ import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 're
 import { ArrowDownRight, ArrowUpRight, BriefcaseBusiness, Code2, Mail, Menu, X } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import easytripPreview from './assets/projects/easytrip.png'
+import invitationPreview from './assets/projects/invito-18.png'
 import './App.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -24,6 +26,8 @@ const projects = [
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
     href: 'https://github.com/christianvalastroo/Easytrip',
     live: 'https://easytrip-sigma.vercel.app/',
+    preview: easytripPreview,
+    previewAlt: 'Homepage dell’applicazione EasyTrip',
     accent: '#ff4d1c',
   },
   {
@@ -43,6 +47,8 @@ const projects = [
     tech: ['React', 'Vite', 'CSS', 'Motion'],
     href: 'https://github.com/christianvalastroo/invito-18',
     live: 'https://invito-18.vercel.app/',
+    preview: invitationPreview,
+    previewAlt: 'Busta interattiva dell’Invito del 18°',
     accent: '#f5f1e8',
   },
 ]
@@ -190,9 +196,11 @@ function App() {
                 <div className="project-card__stage">
                   <div className="project-card__window">
                     <span /><span /><span />
-                    <div className="project-card__code" aria-hidden="true">
-                      <i>const idea =</i><b>{`{ ${project.name} }`}</b><i>build → test → improve</i>
-                    </div>
+                    {project.preview
+                      ? <img src={project.preview} alt={project.previewAlt} />
+                      : <div className="project-card__code" aria-hidden="true">
+                          <i>const idea =</i><b>{`{ ${project.name} }`}</b><i>build → test → improve</i>
+                        </div>}
                   </div>
                 </div>
                 <div className="project-card__content">
