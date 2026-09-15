@@ -100,7 +100,10 @@ function Loader({ hidden }) {
       <div className="loader__panel loader__panel--left" />
       <div className="loader__panel loader__panel--right" />
       <div className="loader__content">
-        <div className="loader__mark">CV<span>.</span></div>
+        <div className="loader__brand" aria-label="valastro-dev">
+          <div className="loader__symbol"><span>V</span><i /></div>
+          <div className="loader__name">Christian<span> Valastro</span></div>
+        </div>
         <div className="loader__track"><span /></div>
         <p>Costruendo l’esperienza</p>
       </div>
