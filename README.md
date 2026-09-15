@@ -12,7 +12,7 @@
 
 ---
 
-![Anteprima di valastro-dev](./public/og.png)
+![Anteprima reale del portfolio valastro-dev](./public/portfolio-preview.jpg)
 
 ## ✨ Il progetto
 
