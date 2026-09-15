@@ -37,7 +37,7 @@ const projects = [
   },
   {
     number: '03',
-    name: 'Invito 18',
+    name: 'Invito del 18°',
     type: 'Frontend · Interactive experience',
     description: 'Un invito digitale pensato per smartphone: una busta argentata si apre e trasforma un gesto semplice in un momento speciale.',
     tech: ['React', 'Vite', 'CSS', 'Motion'],
