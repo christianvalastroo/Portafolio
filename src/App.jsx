@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import easytripPreview from './assets/projects/easytrip.png'
 import invitationPreview from './assets/projects/invito-18.png'
+import SandBackground from './components/SandBackground'
 import './App.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -193,6 +194,7 @@ function App() {
 
   return (
     <div className="app-shell" ref={appRef}>
+      <SandBackground />
       <Loader hidden={loaded} />
       <Sidebar open={menuOpen} onToggle={() => setMenuOpen((value) => !value)} />
 
