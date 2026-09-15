@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, BriefcaseBusiness, Code2, Mail, Menu, X } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, Blocks, BriefcaseBusiness, Code2, Mail, Menu, PartyPopper, PanelsTopLeft, ShoppingBag, Smartphone, UtensilsCrossed, X } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import easytripPreview from './assets/projects/easytrip.png'
@@ -13,8 +13,9 @@ const Scene3D = lazy(() => import('./components/Scene3D'))
 const navItems = [
   { label: 'Home', href: '#home', index: '01' },
   { label: 'Progetti', href: '#progetti', index: '02' },
-  { label: 'Chi sono', href: '#chi-sono', index: '03' },
-  { label: 'Contatti', href: '#contatti', index: '04' },
+  { label: 'Servizi', href: '#servizi', index: '03' },
+  { label: 'Chi sono', href: '#chi-sono', index: '04' },
+  { label: 'Contatti', href: '#contatti', index: '05' },
 ]
 
 const projects = [
@@ -50,6 +51,45 @@ const projects = [
     preview: invitationPreview,
     previewAlt: 'Busta interattiva dell’Invito del 18°',
     accent: '#f5f1e8',
+  },
+]
+
+const services = [
+  {
+    number: '01',
+    title: 'Siti vetrina',
+    description: 'Una presenza online moderna, veloce e costruita per raccontare al meglio attività, servizi e identità.',
+    icon: PanelsTopLeft,
+  },
+  {
+    number: '02',
+    title: 'Mini applicazioni',
+    description: 'Piccoli strumenti web su misura per semplificare prenotazioni, richieste, calcoli o processi quotidiani.',
+    icon: Blocks,
+  },
+  {
+    number: '03',
+    title: 'E-commerce',
+    description: 'Negozi online intuitivi e responsive, pensati per presentare i prodotti e rendere semplice ogni acquisto.',
+    icon: ShoppingBag,
+  },
+  {
+    number: '04',
+    title: 'Menu digitali',
+    description: 'Menu eleganti e facili da aggiornare per bar e ristoranti, perfetti da consultare tramite QR code.',
+    icon: UtensilsCrossed,
+  },
+  {
+    number: '05',
+    title: 'Inviti digitali',
+    description: 'Esperienze interattive per compleanni, feste ed eventi, con animazioni e dettagli capaci di sorprendere.',
+    icon: PartyPopper,
+  },
+  {
+    number: '06',
+    title: 'Mobile first',
+    description: 'Landing page e interfacce che funzionano bene su ogni schermo, curate dal primo tap all’ultima sezione.',
+    icon: Smartphone,
   },
 ]
 
@@ -126,6 +166,18 @@ function App() {
           scale: 0.92,
           opacity: 0.25,
           transformPerspective: 1000,
+        })
+      })
+
+      gsap.utils.toArray('.service-card').forEach((card, index) => {
+        gsap.from(card, {
+          scrollTrigger: { trigger: card, start: 'top 88%' },
+          y: 70,
+          rotateY: index % 2 ? 8 : -8,
+          opacity: 0,
+          duration: 0.8,
+          delay: (index % 3) * 0.08,
+          ease: 'power3.out',
         })
       })
 
@@ -220,9 +272,51 @@ function App() {
           </div>
         </section>
 
+        <section className="services" id="servizi">
+          <div className="services__glow" aria-hidden="true" />
+          <header className="services__heading">
+            <span>03 / Cosa posso creare</span>
+            <h2>La tua idea.<br /><em>Costruita su misura.</em></h2>
+            <div className="services__intro">
+              <p>Ogni progetto parte da una conversazione. Obiettivi, stile e funzionalità vengono definiti insieme.</p>
+              <a href="mailto:valastro.dev@outlook.it?subject=Richiesta%20preventivo">Parliamo del progetto <ArrowUpRight /></a>
+            </div>
+          </header>
+
+          <div className="services__grid">
+            {services.map((service) => {
+              const Icon = service.icon
+              return (
+                <article className="service-card" key={service.title}>
+                  <div className="service-card__top">
+                    <span>{service.number}</span>
+                    <Icon aria-hidden="true" />
+                  </div>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  <a href={`mailto:valastro.dev@outlook.it?subject=${encodeURIComponent(`Preventivo ${service.title}`)}`}>
+                    Richiedi preventivo <ArrowUpRight />
+                  </a>
+                </article>
+              )
+            })}
+          </div>
+
+          <div className="services__ticker" aria-hidden="true">
+            <div>
+              <span>NESSUN LISTINO STANDARD</span><i />
+              <span>OGNI IDEA È DIVERSA</span><i />
+              <span>PREVENTIVO IN PRIVATO</span><i />
+              <span>NESSUN LISTINO STANDARD</span><i />
+              <span>OGNI IDEA È DIVERSA</span><i />
+              <span>PREVENTIVO IN PRIVATO</span><i />
+            </div>
+          </div>
+        </section>
+
         <section className="about" id="chi-sono">
           <div className="about__intro">
-            <span>03 / Chi sono</span>
+            <span>04 / Chi sono</span>
             <h2>Curiosità,<br />codice e <em>costanza.</em></h2>
           </div>
           <div className="about__copy">
@@ -235,7 +329,7 @@ function App() {
         <section className="skills">
           <div className="skills__orb" aria-hidden="true"><span>{`{ }`}</span></div>
           <div className="skills__content">
-            <span>04 / Stack</span>
+            <span>05 / Stack</span>
             <h2>Gli strumenti cambiano.<br /><em>Il modo di pensare resta.</em></h2>
             <div className="skills__grid">
               <div><small>Frontend & CMS</small><p>HTML · CSS · JavaScript<br />React · Bootstrap · Tailwind<br />WordPress</p></div>
@@ -246,7 +340,7 @@ function App() {
         </section>
 
         <footer className="contact" id="contatti">
-          <span>05 / Iniziamo</span>
+          <span>06 / Iniziamo</span>
           <h2>Hai un’idea?<br /><em>Facciamola funzionare.</em></h2>
           <a className="contact__mail" href="mailto:valastro.dev@outlook.it">
             <Mail /> valastro.dev@outlook.it <ArrowUpRight />

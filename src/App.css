@@ -24,7 +24,7 @@
   border-right: 1px solid var(--line); background: rgba(9,9,9,.76); backdrop-filter: blur(16px);
 }
 .brand { font-size: 1.25rem; font-weight: 900; letter-spacing: -.06em; text-decoration: none; }
-.sidebar nav { display: flex; flex-direction: column; align-items: center; gap: 54px; }
+.sidebar nav { display: flex; flex-direction: column; align-items: center; gap: 42px; }
 .sidebar nav a {
   display: flex; align-items: center; gap: 10px; color: #aaa6a0; text-decoration: none;
   text-transform: uppercase; letter-spacing: .17em; font: 500 .58rem DM Mono, monospace; writing-mode: vertical-rl;
@@ -105,6 +105,33 @@ main { margin-left: 116px; }
 .project-card__status i { width: 7px; height: 7px; border-radius: 50%; background: currentColor; box-shadow: 0 0 14px currentColor; animation: status-pulse 1.8s ease-in-out infinite; }
 @keyframes status-pulse { 50% { opacity: .35; transform: scale(.72); } }
 
+.services { position: relative; padding: 135px clamp(28px, 7vw, 125px) 0; overflow: hidden; background: #080808; perspective: 1200px; }
+.services__glow { position: absolute; width: 620px; height: 620px; top: -280px; right: -180px; border-radius: 50%; pointer-events: none; background: radial-gradient(circle, rgba(139,245,220,.16), transparent 66%); filter: blur(10px); }
+.services__heading { position: relative; z-index: 1; display: grid; grid-template-columns: .7fr 2fr 1fr; gap: 45px; align-items: end; margin-bottom: 80px; }
+.services__heading > span { align-self: start; color: var(--mint); text-transform: uppercase; letter-spacing: .17em; font: 500 .6rem DM Mono, monospace; }
+.services__heading h2 { margin: 0; font-size: clamp(3.2rem, 6vw, 7.4rem); line-height: .86; letter-spacing: -.075em; text-transform: uppercase; }
+.services__heading h2 em { color: var(--mint); font-style: normal; }
+.services__intro p { margin: 0 0 25px; color: var(--muted); font-size: .88rem; line-height: 1.75; }
+.services__intro a { display: inline-flex; align-items: center; gap: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--mint); color: var(--paper); text-decoration: none; text-transform: uppercase; letter-spacing: .1em; font: 500 .56rem DM Mono, monospace; }
+.services__intro svg { width: 15px; color: var(--mint); }
+.services__grid { position: relative; z-index: 1; display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.service-card { position: relative; min-height: 390px; padding: 30px; display: flex; flex-direction: column; overflow: hidden; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: linear-gradient(145deg, rgba(255,255,255,.035), transparent 58%); transform-style: preserve-3d; transition: transform .45s cubic-bezier(.2,.8,.2,1), background .35s, border-color .35s; }
+.service-card::before { content: ''; position: absolute; width: 190px; height: 190px; right: -95px; bottom: -95px; border: 1px solid rgba(139,245,220,.2); border-radius: 50%; box-shadow: 0 0 0 30px rgba(139,245,220,.025), 0 0 0 62px rgba(139,245,220,.018); transition: transform .55s, background .35s; }
+.service-card:hover { z-index: 2; border-color: rgba(139,245,220,.55); background: linear-gradient(145deg, rgba(139,245,220,.11), rgba(255,255,255,.02)); transform: translateY(-12px) rotateX(3deg) rotateY(-3deg); }
+.service-card:hover::before { transform: scale(1.35) translate(-12px, -12px); background: rgba(139,245,220,.06); }
+.service-card__top { display: flex; align-items: center; justify-content: space-between; color: var(--mint); font: 500 .58rem DM Mono, monospace; }
+.service-card__top svg { width: 28px; height: 28px; stroke-width: 1.4; transition: transform .4s; }
+.service-card:hover .service-card__top svg { transform: translateZ(35px) rotate(-8deg) scale(1.15); }
+.service-card h3 { max-width: 300px; margin: auto 0 20px; font-size: clamp(2rem, 3vw, 3.4rem); line-height: .92; letter-spacing: -.06em; }
+.service-card > p { max-width: 390px; margin: 0 0 28px; color: var(--muted); font-size: .82rem; line-height: 1.7; }
+.service-card > a { position: relative; z-index: 1; width: fit-content; display: inline-flex; align-items: center; gap: 10px; color: var(--paper); text-decoration: none; text-transform: uppercase; letter-spacing: .1em; font: 500 .53rem DM Mono, monospace; }
+.service-card > a svg { width: 14px; color: var(--mint); transition: transform .25s; }
+.service-card > a:hover svg { transform: translate(3px, -3px); }
+.services__ticker { position: relative; left: 50%; width: 100vw; margin: 105px 0 0; overflow: hidden; transform: translateX(-50%) rotate(-1.5deg); border-top: 1px solid #101010; border-bottom: 1px solid #101010; background: var(--mint); color: var(--ink); }
+.services__ticker > div { width: max-content; padding: 18px 0; display: flex; align-items: center; gap: 30px; animation: services-ticker 24s linear infinite; font: 600 .66rem DM Mono, monospace; letter-spacing: .14em; }
+.services__ticker i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+@keyframes services-ticker { to { transform: translateX(-50%); } }
+
 .about { min-height: 90vh; padding: 130px clamp(28px, 7vw, 125px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 12vw; align-items: center; background: var(--paper); color: var(--ink); }
 .about__intro > span { color: var(--accent); display: block; margin-bottom: 40px; }
 .about h2 em { color: var(--accent); }
@@ -175,6 +202,14 @@ main { margin-left: 116px; }
   .project-card__stage { min-height: 330px; padding: 45px 20px; }
   .project-card__content { grid-column: 1 / -1; padding: 32px 22px 40px; border-top: 1px solid var(--line); border-left: 0; }
   .project-card h3 { font-size: 3.25rem; }
+  .services { padding: 90px 20px 0; }
+  .services__heading { grid-template-columns: 1fr; gap: 25px; margin-bottom: 55px; }
+  .services__heading h2 { font-size: clamp(2.7rem, 12vw, 4.3rem); }
+  .services__intro { margin-top: 12px; }
+  .services__grid { grid-template-columns: 1fr; }
+  .service-card { min-height: 330px; padding: 25px 22px; }
+  .service-card:hover { transform: translateY(-5px) rotateX(2deg); }
+  .services__ticker { margin-top: 75px; }
   .about { min-height: 0; padding: 90px 20px; grid-template-columns: 1fr; gap: 70px; }
   .about h2, .skills h2 { font-size: clamp(3.2rem, 14vw, 5rem); }
   .skills { min-height: 0; padding: 90px 20px; grid-template-columns: 1fr; }
