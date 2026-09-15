@@ -23,15 +23,16 @@ const projects = [
     description: 'Uno spazio personale per progettare viaggi, gestire attività, budget, note e checklist senza perdere il filo.',
     tech: ['React', 'Node.js', 'Express', 'MongoDB'],
     href: 'https://github.com/christianvalastroo/Easytrip',
+    live: 'https://easytrip-sigma.vercel.app/',
     accent: '#ff4d1c',
   },
   {
     number: '02',
-    name: 'Strive Blog',
-    type: 'Full-stack · Publishing platform',
-    description: 'Una piattaforma completa con autenticazione, profili, pubblicazione di articoli e conversazioni attraverso i commenti.',
-    tech: ['React', 'REST API', 'Authentication', 'MongoDB'],
-    href: 'https://github.com/christianvalastroo/M6-Strive-Blog',
+    name: 'MyBudget',
+    type: 'Full-stack · Finance tool',
+    description: 'Un’applicazione per organizzare entrate e spese, leggere con chiarezza le proprie abitudini e prendere decisioni più consapevoli.',
+    tech: ['React', 'Node.js', 'Express', 'MongoDB'],
+    href: 'https://github.com/christianvalastroo/MyBudget',
     accent: '#8bf5dc',
   },
   {
@@ -41,6 +42,7 @@ const projects = [
     description: 'Un invito digitale pensato per smartphone: una busta argentata si apre e trasforma un gesto semplice in un momento speciale.',
     tech: ['React', 'Vite', 'CSS', 'Motion'],
     href: 'https://github.com/christianvalastroo/invito-18',
+    live: 'https://invito-18.vercel.app/',
     accent: '#f5f1e8',
   },
 ]
@@ -198,7 +200,10 @@ function App() {
                   <h3>{project.name}</h3>
                   <p className="project-card__description">{project.description}</p>
                   <ul>{project.tech.map((item) => <li key={item}>{item}</li>)}</ul>
-                  <a href={project.href} target="_blank" rel="noreferrer">Esplora il codice <ArrowUpRight /></a>
+                  <div className="project-card__actions">
+                    {project.live && <a className="project-card__live" href={project.live} target="_blank" rel="noreferrer">Apri applicazione <ArrowUpRight /></a>}
+                    <a href={project.href} target="_blank" rel="noreferrer">Vedi codice <Code2 /></a>
+                  </div>
                 </div>
               </article>
             ))}

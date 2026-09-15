@@ -94,8 +94,11 @@ main { margin-left: 116px; }
 .project-card__description { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.75; }
 .project-card ul { margin: 30px 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; list-style: none; }
 .project-card li { padding: 8px 11px; border: 1px solid var(--line); color: #b5b1aa; text-transform: uppercase; font: .52rem DM Mono, monospace; }
-.project-card__content > a, .about__copy > a { display: inline-flex; align-items: center; gap: 14px; width: fit-content; color: var(--paper); text-transform: uppercase; text-decoration: none; letter-spacing: .12em; font: 500 .6rem DM Mono, monospace; }
-.project-card__content > a svg, .about__copy > a svg { width: 17px; color: var(--project-accent); }
+.project-card__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.project-card__actions a, .about__copy > a { min-height: 43px; padding: 0 15px; display: inline-flex; align-items: center; gap: 12px; width: fit-content; border: 1px solid var(--line); color: var(--paper); text-transform: uppercase; text-decoration: none; letter-spacing: .1em; font: 500 .55rem DM Mono, monospace; transition: color .2s, background .2s, border-color .2s; }
+.project-card__actions a:hover { color: var(--ink); background: var(--paper); border-color: var(--paper); }
+.project-card__actions .project-card__live { color: var(--ink); background: var(--project-accent); border-color: var(--project-accent); }
+.project-card__actions svg, .about__copy > a svg { width: 15px; }
 
 .about { min-height: 90vh; padding: 130px clamp(28px, 7vw, 125px); display: grid; grid-template-columns: 1.4fr 1fr; gap: 12vw; align-items: center; background: var(--paper); color: var(--ink); }
 .about__intro > span { color: var(--accent); display: block; margin-bottom: 40px; }
