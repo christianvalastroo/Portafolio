@@ -338,7 +338,7 @@ function App() {
             <h2>Curiosità,<br />codice e <em>costanza.</em></h2>
           </div>
           <div className="about__copy">
-            <p className="about__lead">Sono Christian Valastro, web developer di Catania.</p>
+            <p className="about__lead">Sono Christian Valastro, web developer.</p>
             <p>Creo applicazioni moderne e intuitive, curando sia l’esperienza visiva sia la struttura tecnica. Sto costruendo il mio percorso full-stack attraverso progetti concreti, sperimentazione continua e attenzione ai dettagli.</p>
             <a href="mailto:valastro.dev@outlook.it">Scrivimi una mail <ArrowUpRight /></a>
           </div>
