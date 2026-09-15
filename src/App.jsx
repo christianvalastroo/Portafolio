@@ -230,7 +230,7 @@ function App() {
             <span>04 / Stack</span>
             <h2>Gli strumenti cambiano.<br /><em>Il modo di pensare resta.</em></h2>
             <div className="skills__grid">
-              <div><small>Frontend</small><p>HTML · CSS · JavaScript<br />React · Tailwind</p></div>
+              <div><small>Frontend & CMS</small><p>HTML · CSS · JavaScript<br />React · Bootstrap · Tailwind<br />WordPress</p></div>
               <div><small>Backend</small><p>Node.js · Express<br />MongoDB · REST API</p></div>
               <div><small>Workflow</small><p>Git · GitHub<br />Vite · Vercel · Render</p></div>
             </div>
