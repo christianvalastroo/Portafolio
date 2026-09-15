@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
-import { ArrowDownRight, ArrowUpRight, Blocks, BriefcaseBusiness, Code2, Mail, Menu, MessageCircle, PartyPopper, PanelsTopLeft, ShoppingBag, Smartphone, UtensilsCrossed, X } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, Blocks, BriefcaseBusiness, Code2, Mail, MessageCircle, PartyPopper, PanelsTopLeft, ShoppingBag, Smartphone, UtensilsCrossed } from 'lucide-react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import easytripPreview from './assets/projects/easytrip.png'
@@ -111,10 +111,18 @@ function Loader({ hidden }) {
 function Sidebar({ open, onToggle }) {
   return (
     <>
-      <button className="menu-toggle" onClick={onToggle} aria-label={open ? 'Chiudi menu' : 'Apri menu'}>
-        {open ? <X /> : <Menu />}
+      <button
+        className={`menu-toggle ${open ? 'menu-toggle--open' : ''}`}
+        onClick={onToggle}
+        aria-label={open ? 'Chiudi menu' : 'Apri menu'}
+        aria-expanded={open}
+        aria-controls="sidebar-navigation"
+      >
+        <span className="menu-toggle__lines" aria-hidden="true">
+          <i /><i /><i />
+        </span>
       </button>
-      <aside className={`sidebar ${open ? 'sidebar--open' : ''}`}>
+      <aside className={`sidebar ${open ? 'sidebar--open' : ''}`} id="sidebar-navigation">
         <a className="brand" href="#home" onClick={onToggle}>CV<span>.</span></a>
         <nav aria-label="Navigazione principale">
           {navItems.map((item) => (
@@ -202,7 +210,7 @@ function App() {
         <section className="hero" id="home">
           <div className="hero__grid" aria-hidden="true" />
           <div className="hero__copy">
-            <div className="eyebrow"><span />Web developer · Catania</div>
+            <div className="eyebrow"><span />· Web developer ·</div>
             <h1>
               Build.<br />
               Break.<br />

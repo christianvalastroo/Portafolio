@@ -41,6 +41,14 @@
 .socials a:hover { color: var(--accent); border-color: var(--accent); }
 .socials svg { width: 13px; }
 .menu-toggle { display: none; }
+.menu-toggle__lines { width: 21px; height: 16px; position: relative; display: block; }
+.menu-toggle__lines i { position: absolute; left: 0; width: 100%; height: 1.5px; display: block; background: currentColor; transform-origin: center; transition: top .35s cubic-bezier(.76,0,.24,1), transform .35s cubic-bezier(.76,0,.24,1), opacity .2s, width .3s; }
+.menu-toggle__lines i:nth-child(1) { top: 0; }
+.menu-toggle__lines i:nth-child(2) { top: 7px; width: 68%; }
+.menu-toggle__lines i:nth-child(3) { top: 14px; }
+.menu-toggle--open .menu-toggle__lines i:nth-child(1) { top: 7px; transform: rotate(45deg); }
+.menu-toggle--open .menu-toggle__lines i:nth-child(2) { width: 0; opacity: 0; }
+.menu-toggle--open .menu-toggle__lines i:nth-child(3) { top: 7px; transform: rotate(-45deg); }
 
 main { position: relative; z-index: 1; margin-left: 116px; }
 .hero { position: relative; min-height: 100svh; overflow: hidden; display: grid; grid-template-columns: minmax(360px, .9fr) 1.1fr; border-bottom: 1px solid var(--line); background: rgba(9,9,9,.34); }
@@ -179,8 +187,9 @@ main { position: relative; z-index: 1; margin-left: 116px; }
 
 @media (max-width: 700px) {
   .sand-background { opacity: .62; }
-  .menu-toggle { position: fixed; z-index: 31; top: 18px; right: 18px; width: 46px; height: 46px; display: grid; place-items: center; color: var(--paper); border: 1px solid var(--line); border-radius: 50%; background: rgba(9,9,9,.8); backdrop-filter: blur(10px); }
-  .menu-toggle svg { width: 19px; }
+  .menu-toggle { position: fixed; z-index: 31; top: 18px; right: 18px; width: 48px; height: 48px; display: grid; place-items: center; padding: 0; color: var(--paper); border: 1px solid var(--line); border-radius: 0; background: rgba(9,9,9,.84); backdrop-filter: blur(10px); transition: color .3s, border-color .3s, background .3s; }
+  .menu-toggle:hover { border-color: var(--accent); }
+  .menu-toggle--open { color: var(--ink); border-color: var(--accent); background: var(--accent); }
   .sidebar { width: 100%; transform: translateX(-102%); transition: transform .55s cubic-bezier(.76,0,.24,1); align-items: flex-start; padding: 28px; }
   .sidebar--open { transform: translateX(0); }
   .sidebar nav { align-items: flex-start; gap: 23px; }
